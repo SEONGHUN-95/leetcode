@@ -24,3 +24,38 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Can you solve the problem in <code>O(1)&nbsp;</code>extra&nbsp;space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</p>
 </div>
+
+
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+# Code
+```
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] result = new int[nums.length];
+        
+        result[0] = 1;
+        for(int i = 1 ; i<nums.length ; i++){
+            result[i] = nums[i-1] * result[i-1];
+        }
+
+        int num = 1;
+        for(int i = nums.length-2 ; i>=0 ; i--){
+            num *= nums[i+1];
+            result[i] *= num;
+        }
+        return result;
+    }
+}
+```
