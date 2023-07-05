@@ -27,16 +27,17 @@
 
 
 # Intuition
-<!-- Describe your first thoughts on how to solve this problem. -->
+나누기 연산이나 O(1)를 초과하는 공간복잡도를 허용치 않고, 시간복잡도 O(n)으로 배열의 곱을 구하는 방법을 고민하였다.
 
 # Approach
-<!-- Describe your approach to solving the problem. -->
-
+1. 배열의 앞에서 뒤로 갈 때에는 nums 배열에서 추출한 값으로 result 배열을 만들어 나갔다. result[i+1] = nums[i] * result[i]
+2. 배열의 뒤에서 앞으로 갈 때에는 추가 배열 생성 없이 변수 하나만 선언하여 nums 값을 누적하여 저장하였다. num = num * nums[i]
+3. 동시에 최종 result 값을 구하기 위해 result 배열과 num 값을 곱하여 답을 도출해냈다. result[i] *= num
+   
 # Complexity
-- Time complexity:
-<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+- Time complexity: 배열을 두 번 검색하므로 2N, -> O(N)
 
-- Space complexity:
+- Space complexity: 정답 배열 제외 변수만 선택하였으므로 O(1)
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
 
 # Code
