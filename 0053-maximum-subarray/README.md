@@ -33,3 +33,34 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If you have figured out the <code>O(n)</code> solution, try coding another solution using the <strong>divide and conquer</strong> approach, which is more subtle.</p>
 </div>
+
+
+# Intuition
+배열을 한 번만 훑어서 최대 값의 조합을 도출해내는 것이 필요. 훑는 과정에서 실시간으로 조건이 대입되야 함을 판단.
+
+# Approach
+1. 첫번째 원소부터 검색 시작, 지금까지 더해온 것과 다음 원소를 비교하여 더 큰 값을 subArray로 지정한다.
+2. 만약 지금까지의 최댓값과 subArray를 비교해서 더 큰 것을 최댓값에 저장.
+3. 검색 반복, 최댓값 도출.
+
+# Complexity
+- Time complexity:
+배열 1회 탐색으로 O(n)
+
+- Space complexity:
+상수 개의 변수만 있으므로 O(1)
+
+# Code
+```
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int currentMaxSum = nums[0];
+        int maxValue = nums[0];
+        for(int i = 1 ; i<nums.length; i++){
+             currentMaxSum = Math.max(nums[i]+currentMaxSum, nums[i]);
+             maxValue = Math.max(currentMaxSum, maxValue);
+        }
+        return maxValue;
+    }
+}
+```
