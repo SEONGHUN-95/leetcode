@@ -5,9 +5,9 @@ class Solution {
     private int findMinRecursive(int[] nums, int left, int right){
         int mid = (left+right)/2;
         
-        if (left == right){
-            return nums[left];
-        }
+//         if (left == right){
+//             return nums[left];
+//         }
         
         if (nums[mid]>nums[right]) {
             return findMinRecursive(nums, mid+1, right);
